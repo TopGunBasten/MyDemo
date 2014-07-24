@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="demoApp">
+<head>
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/Scripts/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Scripts/css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="/Scripts/angular.js"></script>
+    <script>
+
+        var myApp = angular.module("demoApp", []);
+        myApp.controller("imageController", function ($scope) {
+            $scope.number = 1;
+
+            $scope.addIndex = function () {
+                if ($scope.number < 12) {
+                    $scope.number++;
+                }
+
+                if($scope.number>12)
+                {
+                    $scope.number = 1;
+                }
+            }
+        });
+ 
+    </script>
+</head>
+<body ng-controller="imageController">
+    <img src="./images/{{number}}.jpg" class="img-responsive" ng-click="addIndex()" />
+
+</body>
+</html>
